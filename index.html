@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Search</title>
+  <style>
+    /* CSS стилі, що відповідають вигляду Google */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .search-bar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-bar input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    .search-bar button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      background-color: #4285f4;
+      color: #fff;
+      cursor: pointer;
+    }
+    .search-options {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    .search-options a {
+      margin-left: 10px;
+      color: #4285f4;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Сторінка пошуку Google -->
+    <div id="google-search-page">
+      <div class="search-bar">
+        <input type="text" placeholder="Введіть запит">
+        <button>Пошук Google</button>
+      </div>
+      <div class="search-options">
+        <a href="image-search.html">Пошук зображень</a>
+        <a href="advanced-search.html">Розширений пошук</a>
+      </div>
+    </div>
+
+    <!-- Сторінка пошуку зображень Google -->
+    <div id="image-search-page" style="display: none;">
+      <div class="search-bar">
+        <input type="text" placeholder="Введіть запит">
+        <button>Пошук</button>
+      </div>
+      <div class="search-options">
+        <a href="index.html">Пошук Google</a>
+      </div>
+    </div>
+
+    <!-- Сторінка розширеного пошуку Google -->
+    <div id="advanced-search-page" style="display: none;">
+      <div class="search-bar">
+        <input type="text" placeholder="Знайти сторінки із... «усіма цими словами»">
+        <input type="text" placeholder="Знайти сторінки з... «саме цим словом або фразою»">
+        <input type="text" placeholder="Знайти сторінки з... «будь-яким із цих слів»">
+        <input type="text" placeholder="Знайти сторінки з... «жодне з цих слів»">
+        <button style="background-color: #4285f4; color: #fff;">Розширений пошук</button>
+      </div>
+      <div class="search-options">
+        <a href="index.html">Пошук Google</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипт для зміни видимості сторінок при натисканні посилань -->
+  <script>
+    document.querySelector('a[href="image-search.html"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('google-search-page').style.display = 'none';
+      document.getElementById('image-search-page').style.display = 'block';
+    });
+
+    document.querySelector('a[href="advanced-search.html"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('google-search-page').style.display = 'none';
+      document.getElementById('advanced-search-page').style.display = 'block';
+    });
+
+    document.querySelector('a[href="index.html"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('google-search-page').style.display = 'block';
+      document.getElementById('image-search-page').style.display = 'none';
+      document.getElementById('advanced-search-page').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
